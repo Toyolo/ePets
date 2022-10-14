@@ -87,17 +87,17 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
                     if (answer.ToLower() == "dog")
                     {
                         pet = new Dog();
-                        DoPetAction();
+                        DoPetAction(TimeSpan.FromMinutes(2));
                     }
                     else if (answer.ToLower() == "cat")
                     {
                         pet = new Cat();
-                        DoPetAction();
+                        DoPetAction(TimeSpan.FromMinutes(2));
                     }
                     else if (answer.ToLower() == "fish")
                     {
                         pet = new Fish();
-                        DoPetAction();                        
+                        DoPetAction(TimeSpan.FromMinutes(3));                        
                     }
                 
 
@@ -116,9 +116,9 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
             ReadKey();
         }
 
-        static void DoPetAction()
+        static void DoPetAction(TimeSpan time)
         {
-            timer = new Timer(FeedPets, null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
+            timer = new Timer(FeedPets, null, TimeSpan.Zero, time);
             pet.display();           
 
 
