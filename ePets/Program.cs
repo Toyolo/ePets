@@ -142,53 +142,40 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
 
                 string petAction = ReadLine();
 
-                if (petAction.ToLower() == "pet")
+                switch (petAction.ToLower())
                 {
-                    CheckIfStarved(pet.pet);
-
-                }
-                else if (petAction.ToLower() == "rub belly")
-                {
-                    CheckIfStarved(pet.rubBelly);
-
-                }
-                else if (petAction.ToLower() == "play")
-                {
-                    CheckIfStarved(pet.play);
-
-                }
-                else if (petAction.ToLower() == "feed")
-                {
-                    DoPetAction(pet.feed);
-
-                }
-                else if (petAction.ToLower() == "ignore")
-                {
-                    CheckIfStarved(pet.ignore);
-
-                }
-                else if (petAction.ToLower() == "scold")
-                {
-                    CheckIfStarved(pet.scold);
-
-                }
-                else if (petAction.ToLower() == "talk")
-                {
-                    CheckIfStarved(pet.talk);
-                }
-                else if (petAction.ToLower() == "play music")
-                {
-                    CheckIfStarved(pet.playMusic);
-                }
-                else if (petAction.ToLower() == "tap glass")
-                {
-                    CheckIfStarved(pet.tapGlass);
-                }
-                else if(petAction.ToLower() == "remove")
-                {
-                    Clear();
-                    petco = false;
-                }
+                    case "pet":
+                        CheckIfStarved(pet.pet);
+                        break;
+                    case "rub belly":
+                        CheckIfStarved(pet.rubBelly);
+                        break;
+                    case "play":
+                        CheckIfStarved(pet.play);
+                        break;
+                    case "feed":
+                        CheckIfStarved(pet.feed);
+                        break;
+                    case "ignore":
+                        CheckIfStarved(pet.ignore);
+                        break;
+                    case "scold":
+                        CheckIfStarved(pet.scold);
+                        break;
+                    case "talk":
+                        CheckIfStarved(pet.talk);
+                        break;
+                    case "play music":
+                        CheckIfStarved(pet.playMusic);
+                        break;
+                    case "tap glass":
+                        CheckIfStarved(pet.tapGlass);
+                        break;
+                    case "remove":
+                        Clear();
+                        petco = false;
+                        break;
+                }      
             }            
         }
 
