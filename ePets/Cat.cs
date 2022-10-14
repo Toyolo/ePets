@@ -25,6 +25,7 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
             Name = ReadLine();
             Hunger = 2;
             Happiness = 4;
+            MaxHunger = 8;
         }
 
         public override void display()

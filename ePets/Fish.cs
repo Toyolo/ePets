@@ -27,6 +27,7 @@ namespace ePets
             Name = ReadLine();
             Hunger = 2;
             Happiness = 2;
+            MaxHunger = 5;
         }
 
         public override void display()

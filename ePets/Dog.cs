@@ -10,10 +10,7 @@ namespace ePets
 {
     public class Dog : Pet
     {
-        private string Img;
-        private string Name;
-        private int Hunger;
-        private int Happiness;
+        
 
         public Dog()
         {
@@ -29,6 +26,7 @@ namespace ePets
             Name = ReadLine();
             Hunger = 2;
             Happiness = 2;
+            MaxHunger = 10;
         }
 
         public override void display()

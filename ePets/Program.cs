@@ -121,11 +121,12 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
         {
             Clear();
             timer = new Timer(FeedPets, null, TimeSpan.Zero, time);
+            var petco = true;
             pet.display();
 
-
-
-            WriteLine(@"
+            while(petco)
+            {
+                WriteLine(@"
                             ==============
                             |    Pet?    |
                             | Rub Belly? |
@@ -139,72 +140,79 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
                             |   Remove?  | 
                             ==============");
 
-            string petAction = ReadLine();
+                string petAction = ReadLine();
 
-            if (petAction.ToLower() == "pet")
-            {
-                Clear();
-                pet.pet();
-                pet.display();
+                if (petAction.ToLower() == "pet")
+                {
+                    CheckIfStarved();
 
-            }
-            else if (petAction.ToLower() == "rub belly")
-            {
-                Clear();
-                pet.rubBelly();
-                pet.display();
+                }
+                else if (petAction.ToLower() == "rub belly")
+                {
+                    CheckIfStarved();
 
-            }
-            else if (petAction.ToLower() == "play")
-            {
-                Clear();
-                pet.play();
-                pet.display();
+                }
+                else if (petAction.ToLower() == "play")
+                {
+                    CheckIfStarved();
 
-            }
-            else if (petAction.ToLower() == "feed")
-            {
-                Clear();
-                pet.feed();
-                pet.display();
+                }
+                else if (petAction.ToLower() == "feed")
+                {
+                    DoPetAction(pet.ignore);
 
-            }
-            else if (petAction.ToLower() == "ignore")
-            {
-                Clear();
-                pet.ignore();
-                pet.display();
+                }
+                else if (petAction.ToLower() == "ignore")
+                {
+                    CheckIfStarved();
 
-            }
-            else if (petAction.ToLower() == "scold")
-            {
-                Clear();
-                pet.scold();
-                pet.display();
+                }
+                else if (petAction.ToLower() == "scold")
+                {
+                    CheckIfStarved();
 
-            }
-            else if (petAction.ToLower() == "talk")
-            {
-                Clear();
-                pet.talk();
-                pet.display();
-            }
-            else if (petAction.ToLower() == "play music")
-            {
-                Clear();
-                pet.playMusic();
-                pet.display();
-            }
-            else if (petAction.ToLower() == "tap glass")
-            {
-                Clear();
-                pet.tapGlass();
-                pet.display();
-            }
-
-
+                }
+                else if (petAction.ToLower() == "talk")
+                {
+                    CheckIfStarved();
+                }
+                else if (petAction.ToLower() == "play music")
+                {
+                    CheckIfStarved();
+                }
+                else if (petAction.ToLower() == "tap glass")
+                {
+                    CheckIfStarved();
+                }
+                else if(petAction.ToLower() == "remove")
+                {
+                    Clear();
+                    petco = false;
+                }
+            }            
         }
+
+        delegate void PetAction();
        
+        static void DoPetAction(PetAction action)
+        {
+            Clear();            
+            action();
+            pet.display();
+        }
+
+        static void CheckIfStarved()
+        {
+            if (!pet.Starved || !pet.Unhappy)
+            {
+                DoPetAction(pet.pet);
+            }
+            else
+            {
+                Clear();
+                pet.display();
+            }
+        }
 
         static void FeedPets(object state)
         {
