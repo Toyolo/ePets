@@ -45,15 +45,10 @@ namespace ePets
         public override void timedFatigue()
         {
 
-            do
-            {
+            
                 var startTimeSpan = TimeSpan.Zero;
                 var endTimeSpan = TimeSpan.FromMinutes(2);
                 var timer = new System.Threading.Timer((e) =>{fatigue();});
-            } while (tf == true);
-
-
-
         }
 
         public override void pet()

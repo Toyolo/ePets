@@ -12,8 +12,6 @@ namespace ePets
 {
     public abstract class Pet  // base class (parent) 
     {
-        public bool tf = true;
-
         public abstract void display();
 
         public abstract void fatigue();

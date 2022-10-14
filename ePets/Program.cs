@@ -6,9 +6,11 @@ namespace ePets
 {
     class Program
     {
+        static Pet pet;
+        static Timer timer;
+
         static void Main(string[] args)
         {
-            
             
             Title = "*+++ePets+++*";
             WriteLine(@"
@@ -84,266 +86,18 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
 
                     if (answer.ToLower() == "dog")
                     {
-                        
-                        Dog dog = new Dog();
-                        
-                        dog.display();
-                        dog.timedFatigue();
-                        bool doggo = true;
-
-                        //var periodicTimer = new PeriodicTimer(TimeSpan.FromSeconds(120));
-                        //while (await periodicTimer.WaitForNextTickAsync())
-                        {
-                            dog.fatigue();
-                            WriteLine("fatigue");
-                        }
-
-                        do
-                        {
-
-                            WriteLine(@"
-                            ==============
-                            |    Pet?    |
-                            | Rub Belly? |
-                            |   Play?    |
-                            |    Feed?   |
-                            |   Ignore?  |
-                            |   Scold?   |
-                            |   Remove?  | 
-                            ==============");
-
-                            string petAction = ReadLine();
-
-
-                           
-                            if (petAction.ToLower() == "pet")
-                            {
-                                Clear();
-                                dog.pet();
-                                dog.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "rub belly")
-                            {
-                                Clear();
-                                dog.rubBelly();
-                                dog.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "play")
-                            {
-                                Clear();
-                                dog.play();
-                                dog.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "feed")
-                            {
-                                Clear();
-                                dog.feed();
-                                dog.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "ignore")
-                            {
-                                Clear();
-                                dog.ignore();
-                                dog.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "scold")
-                            {
-                                Clear();
-                                dog.scold();
-                                dog.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "remove")
-                            {
-                                Clear();
-                                doggo = false;
-                                dog.tf = false;
-                            }
-                        } while (doggo == true);
+                        pet = new Dog();
+                        DoPetAction();
                     }
                     else if (answer.ToLower() == "cat")
                     {
-
-                        Cat cat = new Cat();
-                        
-                        cat.display();
-                        cat.timedFatigue();
-                        bool gato = true;
-
-                        do
-                        {
-
-
-                            WriteLine(@"
-                            ==============
-                            |    Pet?    |
-                            | Rub Belly? |
-                            |   Play?    |
-                            |    Feed?   |
-                            |   Ignore?  |
-                            |   Scold?   |
-                            |   Remove?  | 
-                            ==============");
-
-                            string petAction = ReadLine();
-
-
-                            
-                            //int noPets = 0;
-                            if (petAction.ToLower() == "pet")
-                            {
-                                Clear();
-                                cat.pet();
-                                cat.display();
-                                
-                                
-                            }
-                            else if (petAction.ToLower() == "rub belly")
-                            {
-                                Clear();
-                                cat.rubBelly();
-                                cat.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "play")
-                            {
-                                Clear();
-                                cat.play();
-                                cat.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "feed")
-                            {
-                                Clear();
-                                cat.feed();
-                                cat.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "ignore")
-                            {
-                                Clear();
-                                cat.ignore();
-                                cat.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "scold")
-                            {
-                                Clear();
-                                cat.scold();
-                                cat.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "remove")
-                            {
-                                Clear();
-                                gato = false;
-                                cat.tf = false;
-                            }
-                        } while (gato == true);
+                        pet = new Cat();
+                        DoPetAction();
                     }
                     else if (answer.ToLower() == "fish")
                     {
-                        Fish fish = new Fish();
-                        
-                        fish.display();
-                        fish.timedFatigue();
-                        bool pesco = true;
-
-                        do
-                        {
-
-
-                            WriteLine(@"
-                            ==============
-                            |    Pet?    |
-                            | Rub Belly? |
-                            |   Play?    |
-                            |    Feed?   |
-                            |   Ignore?  |
-                            |   Scold?   |
-                            | tap glass? |
-                            |    talk?   |
-                            | play music?|
-                            |   Remove?  | 
-                            ==============");
-
-                            string petAction = ReadLine();
-
-
-                            
-
-                            if (petAction.ToLower() == "pet")
-                            {
-                                Clear();
-                                fish.pet();
-                                fish.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "rub belly")
-                            {
-                                Clear();
-                                fish.rubBelly();
-                                fish.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "play")
-                            {
-                                Clear();
-                                fish.play();
-                                fish.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "feed")
-                            {
-                                Clear();
-                                fish.feed();
-                                fish.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "ignore")
-                            {
-                                Clear();
-                                fish.ignore();
-                                fish.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "scold")
-                            {
-                                Clear();
-                                fish.scold();
-                                fish.display();
-                                
-                            }
-                            else if (petAction.ToLower() == "talk")
-                            {
-                                Clear();
-                                fish.talk();
-                                fish.display();
-                            }
-                            else if (petAction.ToLower() == "play music")
-                            {
-                                Clear();
-                                fish.playMusic();
-                                fish.display();
-                            }
-                            else if (petAction.ToLower() == "tap glass")
-                            {
-                                Clear();
-                                fish.tapGlass();
-                                fish.display();
-                            }
-                            else if (petAction.ToLower() == "remove")
-                            {
-                                Clear();
-                                pesco = false;
-                                fish.tf = false;
-                            }
-                        } while (pesco == true);
+                        pet = new Fish();
+                        DoPetAction();                        
                     }
                 
 
@@ -360,6 +114,115 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
            
             WriteLine("Press any key to exit.");
             ReadKey();
+        }
+
+        static void DoPetAction()
+        {
+            timer = new Timer(FeedPets, null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
+            pet.display();           
+
+
+            WriteLine(@"
+                            ==============
+                            |    Pet?    |
+                            | Rub Belly? |
+                            |   Play?    |
+                            |    Feed?   |
+                            |   Ignore?  |
+                            |   Scold?   |
+                            | tap glass? |
+                            |    talk?   |
+                            | play music?|
+                            |   Remove?  | 
+                            ==============");
+
+            string petAction = ReadLine();
+
+            if (petAction.ToLower() == "pet")
+                {
+                    Clear();
+                    pet.pet();
+                    pet.display();
+
+                }
+            else if (petAction.ToLower() == "rub belly")
+                {
+                    Clear();
+                    pet.rubBelly();
+                    pet.display();
+
+                }
+            else if (petAction.ToLower() == "play")
+                {
+                    Clear();
+                    pet.play();
+                    pet.display();
+
+                }
+            else if (petAction.ToLower() == "feed")
+                {
+                    Clear();
+                    pet.feed();
+                    pet.display();
+
+                }
+            else if (petAction.ToLower() == "ignore")
+                {
+                    Clear();
+                    pet.ignore();
+                    pet.display();
+
+                }
+            else if (petAction.ToLower() == "scold")
+                {
+                    Clear();
+                    pet.scold();
+                    pet.display();
+
+                }
+            else if (petAction.ToLower() == "talk")
+                {
+                    Clear();
+                    pet.talk();
+                    pet.display();
+                }
+            else if (petAction.ToLower() == "play music")
+                {
+                    Clear();
+                    pet.playMusic();
+                    pet.display();
+                }
+            else if (petAction.ToLower() == "tap glass")
+                {
+                    Clear();
+                    pet.tapGlass();
+                    pet.display();
+                }
+            else if (petAction.ToLower() == "remove")
+            {
+                Clear();                    
+            }
+        }
+
+        static void FeedPets(object state)
+        {
+            Clear();
+            pet.fatigue();
+            pet.display();
+
+            WriteLine(@"
+                            ==============
+                            |    Pet?    |
+                            | Rub Belly? |
+                            |   Play?    |
+                            |    Feed?   |
+                            |   Ignore?  |
+                            |   Scold?   |
+                            | tap glass? |
+                            |    talk?   |
+                            | play music?|
+                            |   Remove?  | 
+                            ==============");
         }
     }
 }
