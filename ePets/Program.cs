@@ -11,7 +11,7 @@ namespace ePets
 
         static void Main(string[] args)
         {
-            
+
             Title = "*+++ePets+++*";
             WriteLine(@"
                                                                                                 
@@ -82,44 +82,47 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
                     WriteLine("Which would you like!");
                     string answer = ReadLine();
                     Clear();
+
                     WriteLine("Why don't ya give it a name!");
 
                     if (answer.ToLower() == "dog")
                     {
                         pet = new Dog();
-                        DoPetAction(TimeSpan.FromMinutes(2));
+                        ChoosePet(TimeSpan.FromMinutes(2));
                     }
                     else if (answer.ToLower() == "cat")
                     {
                         pet = new Cat();
-                        DoPetAction(TimeSpan.FromMinutes(2));
+                        ChoosePet(TimeSpan.FromMinutes(2));
                     }
                     else if (answer.ToLower() == "fish")
                     {
                         pet = new Fish();
-                        DoPetAction(TimeSpan.FromMinutes(3));                        
+                        ChoosePet(TimeSpan.FromMinutes(3));
                     }
-                
 
-                    
+
+
                 }
                 else if (response.ToLower() == "q")
                 {
-                    active = false;            
+                    active = false;
                 }
 
 
             } while (active);
 
-           
+
             WriteLine("Press any key to exit.");
             ReadKey();
         }
 
-        static void DoPetAction(TimeSpan time)
+        static void ChoosePet(TimeSpan time)
         {
+            Clear();
             timer = new Timer(FeedPets, null, TimeSpan.Zero, time);
-            pet.display();           
+            pet.display();
+
 
 
             WriteLine(@"
@@ -139,70 +142,69 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
             string petAction = ReadLine();
 
             if (petAction.ToLower() == "pet")
-                {
-                    Clear();
-                    pet.pet();
-                    pet.display();
-
-                }
-            else if (petAction.ToLower() == "rub belly")
-                {
-                    Clear();
-                    pet.rubBelly();
-                    pet.display();
-
-                }
-            else if (petAction.ToLower() == "play")
-                {
-                    Clear();
-                    pet.play();
-                    pet.display();
-
-                }
-            else if (petAction.ToLower() == "feed")
-                {
-                    Clear();
-                    pet.feed();
-                    pet.display();
-
-                }
-            else if (petAction.ToLower() == "ignore")
-                {
-                    Clear();
-                    pet.ignore();
-                    pet.display();
-
-                }
-            else if (petAction.ToLower() == "scold")
-                {
-                    Clear();
-                    pet.scold();
-                    pet.display();
-
-                }
-            else if (petAction.ToLower() == "talk")
-                {
-                    Clear();
-                    pet.talk();
-                    pet.display();
-                }
-            else if (petAction.ToLower() == "play music")
-                {
-                    Clear();
-                    pet.playMusic();
-                    pet.display();
-                }
-            else if (petAction.ToLower() == "tap glass")
-                {
-                    Clear();
-                    pet.tapGlass();
-                    pet.display();
-                }
-            else if (petAction.ToLower() == "remove")
             {
-                Clear();                    
+                Clear();
+                pet.pet();
+                pet.display();
+
             }
+            else if (petAction.ToLower() == "rub belly")
+            {
+                Clear();
+                pet.rubBelly();
+                pet.display();
+
+            }
+            else if (petAction.ToLower() == "play")
+            {
+                Clear();
+                pet.play();
+                pet.display();
+
+            }
+            else if (petAction.ToLower() == "feed")
+            {
+                Clear();
+                pet.feed();
+                pet.display();
+
+            }
+            else if (petAction.ToLower() == "ignore")
+            {
+                Clear();
+                pet.ignore();
+                pet.display();
+
+            }
+            else if (petAction.ToLower() == "scold")
+            {
+                Clear();
+                pet.scold();
+                pet.display();
+
+            }
+            else if (petAction.ToLower() == "talk")
+            {
+                Clear();
+                pet.talk();
+                pet.display();
+            }
+            else if (petAction.ToLower() == "play music")
+            {
+                Clear();
+                pet.playMusic();
+                pet.display();
+            }
+            else if (petAction.ToLower() == "tap glass")
+            {
+                Clear();
+                pet.tapGlass();
+                pet.display();
+            }
+
+
         }
+       
 
         static void FeedPets(object state)
         {
