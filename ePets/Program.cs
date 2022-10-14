@@ -144,45 +144,45 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
 
                 if (petAction.ToLower() == "pet")
                 {
-                    CheckIfStarved();
+                    CheckIfStarved(pet.pet);
 
                 }
                 else if (petAction.ToLower() == "rub belly")
                 {
-                    CheckIfStarved();
+                    CheckIfStarved(pet.rubBelly);
 
                 }
                 else if (petAction.ToLower() == "play")
                 {
-                    CheckIfStarved();
+                    CheckIfStarved(pet.play);
 
                 }
                 else if (petAction.ToLower() == "feed")
                 {
-                    DoPetAction(pet.ignore);
+                    DoPetAction(pet.feed);
 
                 }
                 else if (petAction.ToLower() == "ignore")
                 {
-                    CheckIfStarved();
+                    CheckIfStarved(pet.ignore);
 
                 }
                 else if (petAction.ToLower() == "scold")
                 {
-                    CheckIfStarved();
+                    CheckIfStarved(pet.scold);
 
                 }
                 else if (petAction.ToLower() == "talk")
                 {
-                    CheckIfStarved();
+                    CheckIfStarved(pet.talk);
                 }
                 else if (petAction.ToLower() == "play music")
                 {
-                    CheckIfStarved();
+                    CheckIfStarved(pet.playMusic);
                 }
                 else if (petAction.ToLower() == "tap glass")
                 {
-                    CheckIfStarved();
+                    CheckIfStarved(pet.tapGlass);
                 }
                 else if(petAction.ToLower() == "remove")
                 {
@@ -201,11 +201,11 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
             pet.display();
         }
 
-        static void CheckIfStarved()
+        static void CheckIfStarved(PetAction action)
         {
             if (!pet.Starved || !pet.Unhappy)
             {
-                DoPetAction(pet.pet);
+                DoPetAction(action);
             }
             else
             {
